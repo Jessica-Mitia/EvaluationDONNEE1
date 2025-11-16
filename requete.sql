@@ -16,6 +16,14 @@ SELECT contract_type, COUNT(id) AS number_of_employees
 FROM employee 
 GROUP BY contract_type;
 
+SELECT COUNT(id_employee) FROM employee e
+INNER JOIN leave l on e.id = l.id_employee
+WHERE start_date <= CURRENT_DATE and end_date >= CURRENT_DATE;
+
+SELECT e.id, e.first_name, e.last_name, t.name
+FROM employee e INNER JOIN team t ON t.id = e.team_id
+INNER JOIN leave l on e.id = l.id_employee
+WHERE start_date <= CURRENT_DATE and end_date >= CURRENT_DATE;
 
 
 
